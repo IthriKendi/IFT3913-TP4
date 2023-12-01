@@ -137,7 +137,55 @@ class BoiteNoirTest {
 	}
 	
 	
+	// Tests sur les devises invalides et des montant valides pour MainWindow.convert
 	
+	@Test
+	void testCurrencyInvalid() {
+		String currency1 = "USD";
+        String currency2 = "XYZ";
+        Double amount = 100.0;
+        
+        Double result = MainWindow.convert(currency1, currency2, currencies, amount);
+        Double expectedResult = 0.0;
+        
+        assertEquals(expectedResult, result);
+	}
+	
+	@Test
+	void testCurrencyInvalid2() {
+		String currency1 = "XYZ";
+        String currency2 = "USD";
+        Double amount = 100.0;
+        
+        Double result = MainWindow.convert(currency1, currency2, currencies, amount);
+        Double expectedResult = 0.0;
+        
+        assertEquals(expectedResult, result);
+	}
+	
+	@Test
+	void testCurrencyInvalid3() {
+		String currency1 = "CAD";
+        String currency2 = "USDD";
+        Double amount = 100.0;
+        
+        Double result = MainWindow.convert(currency1, currency2, currencies, amount);
+        Double expectedResult = 0.0;
+        
+        assertEquals(expectedResult, result);
+	}
+	
+	@Test
+	void testCurrencyInvalid4() {
+		String currency1 = "CAD";
+        String currency2 = "";
+        Double amount = 100.0;
+        
+        Double result = MainWindow.convert(currency1, currency2, currencies, amount);
+        Double expectedResult = 0.0;
+        
+        assertEquals(expectedResult, result);
+	}
 	
 
 }
